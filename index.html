@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="《心理年龄测试》——30 道情境题，探索你的内在年龄、心理韧性与成长方向。"
+    />
+    <meta name="theme-color" content="#f3efe7" />
+    <title>心理年龄测试 · Inner Age Test</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#" id="brandHome" aria-label="返回首页">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span>
+        </span>
+        <span class="brand-type">
+          <strong>内在刻度</strong>
+          <small>INNER SCALE</small>
+        </span>
+      </a>
+
+      <div class="language-switch" role="group" aria-label="语言选择 / Language">
+        <button class="language-option is-active" type="button" data-lang="zh" aria-pressed="true">
+          简
+        </button>
+        <span class="language-divider" aria-hidden="true"></span>
+        <button class="language-option" type="button" data-lang="en" aria-pressed="false">
+          EN
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="view intro-view" id="introView" aria-labelledby="heroTitle">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span class="eyebrow-line" aria-hidden="true"></span>
+              <span data-i18n="heroEyebrow">一场关于内在时间的探索</span>
+            </p>
+
+            <h1 id="heroTitle" class="hero-title">
+              <span data-i18n="heroLineOne">心理年龄</span>
+              <em data-i18n="heroLineTwo">测试</em>
+            </h1>
+
+            <p class="hero-lede" data-i18n="heroLede">
+              年龄记录你走过的年头，心理年龄则映照你感受世界的方式。三十个日常片刻，遇见更清晰的自己。
+            </p>
+
+            <div class="hero-facts" aria-label="测试信息">
+              <div>
+                <strong>30</strong>
+                <span data-i18n="factQuestions">道情境题</span>
+              </div>
+              <div>
+                <strong>06</strong>
+                <span data-i18n="factMinutes">分钟完成</span>
+              </div>
+              <div>
+                <strong>100%</strong>
+                <span data-i18n="factPrivate">本机计算</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="start-area">
+            <div class="orbit-art" aria-hidden="true">
+              <span class="orbit orbit-a"></span>
+              <span class="orbit orbit-b"></span>
+              <span class="orbit-core"></span>
+              <span class="orbit-note">INNER<br />TIME</span>
+            </div>
+
+            <aside class="start-card" aria-labelledby="ageLabel">
+              <div class="start-card-meta">
+                <span data-i18n="beginHere">从这里开始</span>
+                <span>01—30</span>
+              </div>
+
+              <label class="age-label" id="ageLabel" for="actualAge" data-i18n="ageLabel">
+                你的实际年龄
+              </label>
+              <div class="age-input-wrap" id="ageInputWrap">
+                <input
+                  id="actualAge"
+                  name="actualAge"
+                  type="number"
+                  inputmode="numeric"
+                  min="8"
+                  max="99"
+                  placeholder="25"
+                  aria-describedby="ageHint ageError"
+                />
+                <span data-i18n="ageUnit">岁</span>
+              </div>
+              <p class="age-hint" id="ageHint" data-i18n="ageHint">
+                请输入 8–99 岁，用于与心理年龄进行对照
+              </p>
+              <p class="field-error" id="ageError" role="alert"></p>
+
+              <button class="primary-button" id="startButton" type="button">
+                <span data-i18n="startButton">开始探索</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h13M13 6l6 6-6 6" />
+                </svg>
+              </button>
+
+              <p class="local-note">
+                <span class="privacy-dot" aria-hidden="true"></span>
+                <span data-i18n="localNote">不收集、不上传，所有答案仅留在你的设备</span>
+              </p>
+            </aside>
+          </div>
+        </div>
+
+        <div class="intro-footer">
+          <p data-i18n="introDisclaimer">
+            本测试用于自我观察与对话，不构成医学诊断或心理治疗建议。
+          </p>
+          <div class="footer-mark" aria-hidden="true">
+            <span></span>
+            <span>EST. 2026</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="view test-view is-hidden" id="testView" aria-labelledby="questionText">
+        <div class="test-shell">
+          <div class="test-topbar">
+            <button class="quiet-button" id="exitButton" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 12H6M11 6l-6 6 6 6" />
+              </svg>
+              <span data-i18n="exitTest">退出测试</span>
+            </button>
+
+            <div class="question-counter" aria-live="polite">
+              <span id="questionNumber">01</span>
+              <span class="counter-divider">/</span>
+              <span>30</span>
+            </div>
+          </div>
+
+          <div class="progress-block">
+            <div
+              class="progress-track"
+              id="progressTrack"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            >
+              <span class="progress-fill" id="progressFill"></span>
+            </div>
+            <span class="progress-label" id="progressLabel">0%</span>
+          </div>
+
+          <div class="question-stage" id="questionStage">
+            <div class="question-heading">
+              <div class="question-tag">
+                <span id="dimensionLabel">好奇探索</span>
+                <span class="tag-dot" aria-hidden="true"></span>
+                <span data-i18n="instinctHint">跟随第一直觉</span>
+              </div>
+              <h2 id="questionText"></h2>
+            </div>
+
+            <div class="option-list" id="optionList" role="radiogroup" aria-labelledby="questionText"></div>
+
+            <div class="question-footer">
+              <button class="quiet-button previous-button" id="previousButton" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 12H6M11 6l-6 6 6 6" />
+                </svg>
+                <span data-i18n="previousQuestion">上一题</span>
+              </button>
+              <p data-i18n="noRightAnswer">没有标准答案，只有更接近你的选择</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view result-view is-hidden" id="resultView" aria-labelledby="resultHeading">
+        <div class="result-shell">
+          <div class="result-hero">
+            <div class="result-heading-block">
+              <p class="eyebrow">
+                <span class="eyebrow-line" aria-hidden="true"></span>
+                <span data-i18n="resultEyebrow">你的内在画像</span>
+              </p>
+
+              <h2 id="resultHeading" data-i18n="resultHeading">你的心理年龄</h2>
+
+              <div class="mental-age-line">
+                <span class="mental-age-number" id="mentalAgeNumber">0</span>
+                <span class="mental-age-unit" data-i18n="ageUnit">岁</span>
+                <span class="archetype-pill" id="archetypePill"></span>
+              </div>
+            </div>
+
+            <div class="difference-card">
+              <span data-i18n="differenceLabel">与实际年龄的差值</span>
+              <strong id="differenceValue">+0</strong>
+              <p id="differenceDirection"></p>
+            </div>
+          </div>
+
+          <p class="result-summary" id="resultSummary"></p>
+
+          <div class="age-spectrum-card">
+            <div class="spectrum-header">
+              <div>
+                <span class="section-kicker" data-i18n="chronologicalAge">实际年龄</span>
+                <strong id="actualAgeValue">—</strong>
+              </div>
+              <div class="spectrum-legend" aria-hidden="true">
+                <span><i class="legend-dot actual"></i><span data-i18n="actualAgeShort">实际</span></span>
+                <span><i class="legend-dot mental"></i><span data-i18n="mentalAgeShort">心理</span></span>
+              </div>
+              <div class="spectrum-age-right">
+                <span class="section-kicker" data-i18n="mentalAgeLabel">心理年龄</span>
+                <strong id="mentalAgeValue">—</strong>
+              </div>
+            </div>
+
+            <div class="age-spectrum" id="ageSpectrum">
+              <div class="spectrum-track" aria-hidden="true"></div>
+              <div class="spectrum-marker actual" id="actualMarker">
+                <span class="marker-dot"></span>
+                <span class="marker-caption" data-i18n="actualAgeShort">实际</span>
+              </div>
+              <div class="spectrum-marker mental" id="mentalMarker">
+                <span class="marker-dot"></span>
+                <span class="marker-caption" data-i18n="mentalAgeShort">心理</span>
+              </div>
+              <div class="spectrum-ticks" id="spectrumTicks" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="share-panel">
+            <div class="share-copy">
+              <span class="section-kicker" data-i18n="shareKicker">保留这一刻</span>
+              <h3 data-i18n="shareHeading">分享你的内在年龄</h3>
+              <p data-i18n="shareDescription">
+                链接包含本次答案与结果，打开后即可看到同一份画像。
+              </p>
+            </div>
+            <div class="share-actions">
+              <button class="primary-button share-button" id="shareButton" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="18" cy="5" r="2.5"></circle>
+                  <circle cx="6" cy="12" r="2.5"></circle>
+                  <circle cx="18" cy="19" r="2.5"></circle>
+                  <path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"></path>
+                </svg>
+                <span data-i18n="shareButton">分享结果</span>
+              </button>
+              <button class="outline-button" id="restartButton" type="button">
+                <span data-i18n="retakeButton">重新测试</span>
+              </button>
+            </div>
+            <label class="share-link-label" for="shareUrl" data-i18n="shareLinkLabel">结果链接</label>
+            <div class="share-link-row">
+              <input id="shareUrl" type="text" readonly />
+              <button id="copyButton" type="button" data-i18n="copyButton">复制</button>
+            </div>
+          </div>
+
+          <div class="analysis-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-kicker" data-i18n="portraitKicker">五维内在画像</p>
+                <h3 data-i18n="portraitHeading">你不是一个数字，而是一种组合</h3>
+              </div>
+              <p data-i18n="portraitDescription">
+                以下维度呈现你此刻更常使用的能力。高分不是更好，低分也不是缺陷，它们共同组成你的节奏。
+              </p>
+            </div>
+
+            <div class="dimension-grid" id="dimensionGrid"></div>
+          </div>
+
+          <div class="insight-section" id="insightSection">
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker" data-i18n="insightKicker">深入解读</p>
+                <h3 data-i18n="insightHeading">把差异变成理解自己的线索</h3>
+              </div>
+            </div>
+            <div class="insight-grid" id="insightGrid"></div>
+          </div>
+
+          <div class="reflection-card">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <div>
+              <p class="section-kicker" data-i18n="reflectionKicker">留给自己的一个问题</p>
+              <p class="reflection-question" id="reflectionQuestion"></p>
+            </div>
+          </div>
+
+          <div class="result-footer">
+            <p data-i18n="resultDisclaimer">
+              心理年龄并非科学定论，而是一种帮助自我观察的表达方式。请把它当作一面镜子，而非标签。
+            </p>
+            <span>INNER SCALE · 2026</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
